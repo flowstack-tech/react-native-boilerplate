@@ -1,0 +1,41 @@
+module.exports = {
+  presets: ["module:metro-react-native-babel-preset"],
+  plugins: [
+    [
+      require.resolve("babel-plugin-module-resolver"),
+      {
+        cwd: "babelrc",
+        extensions: [
+          ".ts",
+          ".tsx",
+          ".js",
+          ".android.ts",
+          ".android.tsx",
+          ".android.js",
+          ".ios.ts",
+          ".ios.tsx",
+          ".ios.js",
+          ".web.ts",
+          ".web.tsx",
+          ".web.js",
+        ],
+        root: ["."],
+        alias: {
+          "@root": ["."],
+          "@src": ["./src"],
+          "@common": ["./src/common"],
+          "@api": ["./src/common/api"],
+          "@components": ["./src/common/components"],
+          "@constants": ["./src/common/constants"],
+          "@contexts": ["./src/common/contexts"],
+          "@hooks": ["./src/common/hooks"],
+          "@misc": ["./src/common/misc"],
+          "@styles": ["./src/common/styles"],
+          "@language": ["./src/common/language"],
+          "@features": ["./src/features"],
+        },
+      },
+    ],
+    "jest-hoist",
+  ],
+};

@@ -1,0 +1,13 @@
+name: lint
+
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install eslint eslint-plugin-import eslint-plugin-simple-import-sort
+      - name: Run eslint
+        run: node_modules/eslint/bin/eslint.js . --ext .js,.jsx,.ts,.tsx
